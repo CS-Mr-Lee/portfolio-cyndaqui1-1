@@ -53,14 +53,14 @@ public class Franklin_Zhang_ChampionFilter {
 			}
 		}
 		System.out.println("Highest HP: " + champions[index] + " (" + hp[index] + "HP)"); // outputs largest hp champion's hp and name
-		for (int i = 1; i < 224; i++) { // finds the largest armor and uses index variable as a pointer to the element
+		for (int i = 1; i < 224; i++) { // finds the weakest armor and uses index variable as a pointer to the element
 
-			if (armor[i] > armor[index]) {
+			if (armor[i] < armor[index] && armor[i] != 0) {
 				index = i;
 			}
 		}
 
-		System.out.println("Highest Armor: " + champions[index] + " (" + hp[index] + " Armor)"); // outputs largest armor champion's hp and name
+		System.out.println("Lowest Armor: " + champions[index] + " (" + armor[index] + " Armor)"); // outputs largest armor champion's hp and name
 
 	}
 }
