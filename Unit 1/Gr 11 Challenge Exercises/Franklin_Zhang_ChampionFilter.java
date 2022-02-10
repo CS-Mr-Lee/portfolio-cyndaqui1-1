@@ -12,9 +12,9 @@ public class Franklin_Zhang_ChampionFilter {
 		
 
 		// declare empty arrays for champion names, hitpoints, and armor
-		String[] champions = new String[224];
-		double[] hp = new double[224];
-		double[] armor = new double[224];
+		String[] champions = new String[152];
+		double[] hp = new double[152];
+		double[] armor = new double[152];
 
 		int index = 0; // counter used for filling out respective indexes in arrays above
 		
@@ -46,16 +46,18 @@ public class Franklin_Zhang_ChampionFilter {
 
 		catch (Exception e) {}
 
-		for (int i = 1; i < 224; i++) { // reuses index as a pointer, in which case, we are finding the largest element, and using the index as a pointer to that element
+		index = 0; // reset pointer
+
+		for (int i = 1; i < 152; i++) { // reuses index as a pointer, in which case, we are finding the largest element, and using the index as a pointer to that element
 
 			if (hp[i] > hp[index]) {
 				index = i;
 			}
 		}
 		System.out.println("Highest HP: " + champions[index] + " (" + hp[index] + "HP)"); // outputs largest hp champion's hp and name
-		for (int i = 1; i < 224; i++) { // finds the weakest armor and uses index variable as a pointer to the element
+		for (int i = 1; i < 152; i++) { // finds the weakest armor and uses index variable as a pointer to the element
 
-			if (armor[i] < armor[index] && armor[i] != 0) {
+			if (armor[i] < armor[index]) {
 				index = i;
 			}
 		}
