@@ -10,6 +10,12 @@ public class Franklin_Zhang_Encryption {
 	
 	static Scanner scanner = new Scanner(System.in); //declare a scanner object
 
+
+	/**
+	 *  Method to gather and filter input
+	 * 
+	 * @return returns the filtered input string
+	 */
 	public static String validate() { // used to gather input and filter
 
 		String input = scanner.nextLine(); // reads user input

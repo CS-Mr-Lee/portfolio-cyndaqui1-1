@@ -11,7 +11,7 @@ public class Franklin_Zhang_ChampionFilter {
 	public static void main(String[] arg) {
 		
 
-		// declare empty arrays for champion names, hitpoints, and armor
+		// declare empty arrays for champion names, hitpoints, and armor. Array lengths are 152 since there are 152 champions currently present in the file
 		String[] champions = new String[152];
 		double[] hp = new double[152];
 		double[] armor = new double[152];
@@ -23,7 +23,7 @@ public class Franklin_Zhang_ChampionFilter {
 			String line;
 			
 			//create an object to read from file "champions.json"
-			File file = new File("champions.json");
+			File file = new File("MaxChampStats.txt");
 			FileReader filereader = new FileReader(file);
 			BufferedReader reader = new BufferedReader(filereader);
 			

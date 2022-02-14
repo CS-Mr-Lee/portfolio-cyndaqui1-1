@@ -12,23 +12,18 @@ public class Franklin_Zhang_SASTriangleSolver {
 
 	static Scanner scanner = new Scanner(System.in);// declare a Scanner object
 
-	public static void main(String[] args) {
+	/**
+	 * Calculates and returns the value to solve the SAS triangle problem
+	 * 
+	 * @param sideOne first known value of triangle length
+	 * @param sideTwo second known value of triangle length
+	 * @param knownAngle value of sole known angle
+	 * 
+	 * @return returns the smallest angle in degrees of the triangle in double format
+	 */
 
+	public static double calculate(double sideOne, double sideTwo, double knownAngle) {
 
-	    double sideOne;
-	    double sideTwo;
-	    double knownAngle;
-
-	    System.out.print("What is the length of one side: "); // prompt user to input a side of the triangle
-	    sideOne = scanner.nextDouble();
-	    scanner.nextLine();
-
-	    System.out.print("What is the length of second side: "); // prompt user to input second side of triangle
-	    sideTwo = scanner.nextDouble();
-	    scanner.nextLine();
-
-	    System.out.print("What is the measure of the known angle: "); // prompt user to input measure of known angle
-	    knownAngle = scanner.nextDouble();
 
 	    double smallerAngle; // declare missing variables
 	    double missingSide; // declare missingSide
@@ -60,26 +55,46 @@ public class Franklin_Zhang_SASTriangleSolver {
 	    	}
 	    }
 
-	    System.out.printf("%.2f",smallestAngle);
+	    return smallestAngle;
 
+	  }
+
+	  public static void main(String[] args) {
+
+
+	    double sideOne;
+	    double sideTwo;
+	    double knownAngle;
+
+	    System.out.print("What is the length of one side: "); // prompt user to input a side of the triangle
+	    sideOne = scanner.nextDouble();
+	    scanner.nextLine();
+
+	    System.out.print("What is the length of second side: "); // prompt user to input second side of triangle
+	    sideTwo = scanner.nextDouble();
+	    scanner.nextLine();
+
+	    System.out.print("What is the measure of the known angle: "); // prompt user to input measure of known angle
+	    knownAngle = scanner.nextDouble();
+	  	System.out.printf("%.2f",calculate(sideOne,sideTwo,knownAngle));
 	  }
 
 
 	  /**
-	   * @knownAngle : the sole known angle of the triangle
-	   * @sideB : side b or 2 of triangle
-	   * @sideC : side c or 3 of triangle
-	   * @return: side length a of triangle
+	   * @param knownAngle : the sole known angle of the triangle
+	   * @param sideB : side b or 2 of triangle
+	   * @param sideC : side c or 3 of triangle
+	   * @return - side length a of triangle
 	   */
 	  private static double cosineLaw(double knownAngle,double sideB, double sideC) {
 	  	return Math.sqrt(((sideB * sideB) + (sideC * sideC)) - (2 * (sideB * sideC) * Math.cos(knownAngle))); // a^2 = b^2 + c^2 - 2bc * (sinA)
 	  }
 
 	  /**
-	   * @double shorterSide: the shorter side of the triangle
-	   * @givenAngle: the sole angle given to us by user
-	   * @sideOppGivenAngle : missing angle found out with method cosineLaw
-	   * @return: radian value of the smaller angle of two unknown angles of triangle
+	   * @param double shorterSide: the shorter side of the triangle
+	   * @param givenAngle: the sole angle given to us by user
+	   * @param sideOppGivenAngle : missing angle found out with method cosineLaw
+	   * @return - radian value of the smaller angle of two unknown angles of triangle
 	   */
 	  private static double sineLaw(double shorterSide, double givenAngle, double sideOppGivenAngle) {
 	    return Math.asin(shorterSide * (Math.sin(givenAngle) / sideOppGivenAngle)); // (sin A)/a = (sin B)/b = (sin C)/c,

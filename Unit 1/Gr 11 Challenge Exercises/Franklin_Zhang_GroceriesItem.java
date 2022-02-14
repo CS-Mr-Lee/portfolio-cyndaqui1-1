@@ -1,7 +1,7 @@
 /**
  * Name: Franklin Zhang
  * Date: 20222-02-08
- * Description: A grocery list calculator. Receives a quantity of items on list, and for each, asks the price, quantity and name, and will be output on a formatted receipt with the subtotal and total with tax
+ * Description: A program to recieve data on two grocery items and lists their name and price
  */
 
 import java.util.Scanner;
@@ -10,11 +10,18 @@ public class Franklin_Zhang_GroceriesShopping {
 
 	static Scanner in = new Scanner(System.in); // create new scanner object
 
-	//This function is for validating user input via datatypes
-	public static double validation(String msg) {
+	/** 
+	 * This function is for validating user input via datatypes
+	 * @param msg fail message to print if input does not match criteria
+	 * @return - returns accepted double input
+	 */
+	public static double validate(String msg) {
 		while (true) {
 			String input = in.nextLine();
 			try { // tries to parse to double, fails if not double/int
+				if (input > 100) {
+					int x = 0/0;
+				}
 				return(Double.parseDouble(input));
 			}
 			catch (Exception e) { // continues to loop after printing error given message
@@ -24,54 +31,26 @@ public class Franklin_Zhang_GroceriesShopping {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("|| $$$  ========== \"Frankln's Grocery\" ==========  $$$ ||");
-		System.out.println("---------------------------------------------------------");
-		System.out.println("How much bread do u require peasant?");
-		int qty = (int) validation("Ha, I speak not of ur lowly language u lot of ungrateful swines"); // length of products bought on receipt
-		String[] groceries= new String[qty];// name of products list
-		int[] item_qty = new int[qty]; // quantity of each product bought
-		double[] prices = new double[qty]; // prices of each product bought
-		double subtotal=0; // subtotal of all products*quantity
-		for (int i = 0; i < qty; i++) { // gets information on each product based on length
-			System.out.print("What may your lowly presence seek in this esteemed refuge: ");
-			groceries[i] = in.nextLine(); //fills groceries name list
-			System.out.printf("Fool, state the price of %s: $", groceries[i]);
-			double tmp = validation("Ha, forsake ur stupidity and yield shan't u leave empty handed");
-			while (tmp < 0) { // ensures the user inputs correct data
-				System.out.println("Feh, know your place! I am but so pitiful to accept your mud-stained coins");
-				tmp=validation("Ha, forsake ur stupidity and yield shan't u leave empty handed");
-			}
-			prices[i] = tmp; // fills in prices of products
-			System.out.printf("How many a %s can your pathetic wallet accomodate: ", groceries[i]);
-			tmp = (int) validation("Oh, would you be so bold, it tickles my bones!");
-			while (tmp<0) {
-				System.out.println("Sometimes it's a wonder, pondering on your disability to function");
-				tmp = (int) validation("Oh, would you be so bold, it tickles my bones!");
-			}
-			item_qty[i] = (int) tmp; //quantity of current product
-			subtotal+=item_qty[i]*prices[i]; // increments given price*quantity to subtotal
-			System.out.println();
-
+		System.out.print("Welcome to K-mart, please check out item 1: "); // prompts user to input name for item 1
+		String item1 = in.nextLine(); 
+		while (item1.length() > 20) {// while the item1 has more than 20 characters, keep prompting user to input different value
+			System.out.print("Welcome to K-mart, please check out item 1: ");
+			item1 = in.nextLine();
 		}
-		System.out.println("Hmph, grace yourself with the presence of thy paper, of which possesses a hefty greater value than thee");
-		System.out.println();
-		System.out.println("Item      |  Price  | Quant. | Total Price");
-		System.out.println("------------------------------------------");
-		for (int i = 0;i < qty;i++) { // prints all information in list order by looping
-			System.out.printf("%-10s| $ %6.2f|%8d| $ %9.2f\n", groceries[i], prices[i],item_qty[i], prices[i]*item_qty[i]);
+		System.out.print("What is the cost of " + item1 + "?"); // prompts user for price of item 1
+		double price1 = validate("We do not accept that currency");
+		System.out.print("please check out item 2: "); // prompts user to inp'ut name for item 2
+		String item2 = in.nextLine();
+		while (item2.length() > 20) { // while the item2 has more than 20 characters, keep prompting user to input different value
+			System.out.print("please check out item 2: ");
+			item2 = in.nextLine();
 		}
-		System.out.println("------------------------------------------");
-		System.out.printf("%20s", " ");
-		System.out.printf("Subtotal : $%10.2f\n",subtotal);
-		System.out.printf("%25s", " ");
-		System.out.printf("Tax : $%10.2f\n", subtotal*0.13);
-		System.out.printf("%23s", " ");
-		double total = subtotal*1.13;
-		System.out.printf("Total : $%10.2f\n", total);
+		System.out.print("What is the cost of " + item2 + "?"); // prompts user to input price for item 2
+		double price2 = validate("we do not accept that currency");
 
-		System.out.println();
-
-		System.out.printf("Give me $%d you peasant\n", Math.round(total));
-		System.out.printf("Hmph, I'm in a good mood, give me $%.1f instead. Be grateful, swine\n", Math.round(total*2)/2.0);
+		System.out.println("---------------------");
+		System.out.printf("%-16s %.2f\n",item1,price1); // print item name and price of item 1
+		System.out.printf("%-16s %.2f\n",item2,price2); // print item name and price of item 2
+		System.out.println("---------------------");
 	}
 }
