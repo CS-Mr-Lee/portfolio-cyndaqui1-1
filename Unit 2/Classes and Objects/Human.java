@@ -1,3 +1,9 @@
+/**
+ * Name: Franklin Zhang
+ * Date: Feb 25
+ * Description: Human class that contains human like attributes and actions
+ */
+
 public class Human {
 	private String name; // name of the human
 	private double weight; // weight of the human
