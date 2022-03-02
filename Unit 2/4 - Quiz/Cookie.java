@@ -33,7 +33,7 @@ public class Cookie {
 	public Cookie(String newName, double newWeight, int newCalories) {
 		//fills out attributes corresponding to parameters
 		this.name = newName;
-		this.weigtht = newWeight;
+		this.weight = newWeight;
 		this.calories = newCalories;
 		this.isPackaged = false;
 	}
@@ -49,7 +49,7 @@ public class Cookie {
 	public Cookie(String newName, double newWeight, int newCalories, boolean newIsPackaged) {
 		//fills out attribtues corresponding to parameters
 		this.name = newName;
-		this.weigtht = newWeight;
+		this.weight = newWeight;
 		this.calories = newCalories;
 		this.isPackaged = newIsPackaged;
 	}
@@ -111,7 +111,7 @@ public class Cookie {
    @param newCalories expected new calories
    */
 	public void changeCalories(int newCalories) {
-		this.calories - newCalories;
+		this.calories -= newCalories;
 	}
 
 	/**
@@ -141,10 +141,10 @@ public class Cookie {
 		if (weight > this.weight) {
 			return -1;
 		}
-		if (!this.isPackaged) {
+		if (this.isPackaged) {
 			return -2;
 		}
-		int ret_value = this.calories/(this.weight/weight);
+		int ret_value = this.calories/(int)(this.weight/weight);
 		this.weight-=weight;
 		return ret_value;
 	}

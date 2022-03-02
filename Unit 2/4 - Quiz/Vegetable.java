@@ -160,7 +160,7 @@ public class Vegetable {
     if (!this.isEdible) {
       return -2;
     }
-    int ret_value = this.calories/(this.weight/weight);
+    int ret_value = this.calories/(int)(this.weight/weight);
     this.weight-=weight;
     return ret_value;
   }

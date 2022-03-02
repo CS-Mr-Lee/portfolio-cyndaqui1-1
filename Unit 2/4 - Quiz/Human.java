@@ -41,6 +41,7 @@ public class Human {
 		this.name = name;
 		this.weight = weight;
 		this.energyLevel = energyLevel;
+      this.sex = "";
 
 		if (this.weight < 0) { // weight cannot be negative
 			this.weight = 50;
@@ -131,7 +132,7 @@ public class Human {
 	 * @param grams double weight in grams of veg to be eaten
 	 */
 	public void eat(Vegetable veg, double grams) {
-		int eatVeg = veg.eat(grams);
+		int eatVeg = veg.eaten(grams);
 		if (eatVeg==-1) {
 			System.out.println("I don't have that much " + veg.getName());
 			return;
@@ -153,7 +154,7 @@ public class Human {
 	 * @param grams double weight in grams of veg to be eaten
 	 */
 	public void eat(Cookie food, double grams) {
-		int eatCookie = food.eat(grams);
+		int eatCookie = food.eaten(grams);
 		if (eatCookie==-1) {
 			System.out.println("I don't have that much " + food.getName());
 			return;
@@ -270,22 +271,22 @@ public class Human {
 		this.sex = newSex;
 	}
 
-	public static void main(String[] args) {
-		Human frank = new Human ("frank", 50, 12, "antarctican", "male");
-		Human jeff = new Human ("Susan", 12, 98, "atlantian", "monkey");
-		System.out.println(frank.getEnergyLevel());
-		System.out.println(frank.getWeight());
-		System.out.println(jeff.getSex());
-		System.out.println(jeff.getName());
-		System.out.println(frank.toString());
-		System.out.println(jeff.toString());
-		frank.run(10);
-		frank.run(2);
-		jeff.changeSex("male");
-		jeff.changeSex("female");
-		jeff.eat(700);
-		frank.sleep(48);
-		System.out.println(frank.toString());
-		System.out.println(jeff.toString());
-	}
+	// public static void main(String[] args) {
+// 		Human frank = new Human ("frank", 50, 12, "antarctican", "male");
+// 		Human jeff = new Human ("Susan", 12, 98, "atlantian", "monkey");
+// 		System.out.println(frank.getEnergyLevel());
+// 		System.out.println(frank.getWeight());
+// 		System.out.println(jeff.getSex());
+// 		System.out.println(jeff.getName());
+// 		System.out.println(frank.toString());
+// 		System.out.println(jeff.toString());
+// 		frank.run(10);
+// 		frank.run(2);
+// 		jeff.changeSex("male");
+// 		jeff.changeSex("female");
+// 		jeff.eat(700);
+// 		frank.sleep(48);
+// 		System.out.println(frank.toString());
+// 		System.out.println(jeff.toString());
+// 	}
 }
