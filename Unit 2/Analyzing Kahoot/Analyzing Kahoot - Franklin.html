@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<h1>Analyzing Kahoot</h1>
+<h2>Name</h2>
+<ul>
+	<li>Franklin</li>
+</ul>
+<h2>Link</h2>
+<ul>
+	<li><a href="https://github.com/CS-Mr-Lee/portfolio-cyndaqui1-1/blob/main/Unit%202/Analyzing%20Kahoot/kahoot.drawio.png">Diagram</a></li>
+	<li><a href="https://drive.google.com/file/d/1ol0dUsknoP-VtBNIkEkKMuR6p8yedviA/view?usp=sharing">Video</a></li>
+</ul>
+<h2>Image</h2>
+<a href="https://github.com/CS-Mr-Lee/portfolio-cyndaqui1-1/blob/main/Unit%202/Analyzing%20Kahoot/kahoot.drawio.png?raw=true"><img src="https://github.com/CS-Mr-Lee/portfolio-cyndaqui1-1/blob/main/Unit%202/Analyzing%20Kahoot/kahoot.drawio.png?raw=true" width="1000" height="1000"></a>
+<h2><a href="https://drive.google.com/file/d/1ol0dUsknoP-VtBNIkEkKMuR6p8yedviA/view?usp=sharing">Justification</a></h2>
+<ul>
+	<li></li>
+</ul>
+<h2>Questions</h2>
+<ol>
+	<li>
+		<h3>Design a 10th type of question</h3>
+		<ol type="a">
+			<li>Describe how it works and why it might be useful. (2)</li>
+			<ul>
+				<p>Match. Participants are given an even set of options that are aligned on two sides, then they have to draw lines to match according per the question requests. It is useful to test multiple matching answers corresponding to a similar answer, such as events correlating with the years it took place in
+			</ul>
+			<li>What attributes would it have? (2)</li>
+			<ul>
+				It would have the same attributes as the parent class Question, making it a subclass of said class. It would inherit the String attribute question, along with String array methods getQuestion, & void method changeQuestion. I would add additional attribute 2D String array of 2 arrays of undefined length called options. I would also add attribute answer, which is an array of unsigned integers identical to the amount of elements in one of the two arrays in options. It represents the indexes which correctly responds to each other. It would have the methods getAnswer, which returns answer, and the method changeAnswer, which would include a parameter of user input identical to the format of answer. It returns void
+			</ul>
+			<li>What is its relationship to the other classes? (2)</li>
+			<ul>
+				<li>It would simply be a subclass of Question, and indirectly compose Kahoot in a relation of 1 Kahoot can compose of many of these classes</li>
+			</ul>
+			<li>Include a diagram of the class. (2)</li>
+			<a href="https://github.com/CS-Mr-Lee/portfolio-cyndaqui1-1/blob/main/Unit%202/Analyzing%20Kahoot/kahoot1.1.drawio.png?raw=true">
+				<img src="https://github.com/CS-Mr-Lee/portfolio-cyndaqui1-1/blob/main/Unit%202/Analyzing%20Kahoot/kahoot1.1.drawio.png?raw=true" width="500" height="500">
+			</a>
+		</ol>
+	</li>
+	<li>
+		<h3>You are tasked to redisgn Kahoot to be used in a setting outside of school of your choice. How might the classes change to tailor specifically for that application? Consider changes of relationships/attributes/methods. (2)</h3>
+		<p>I would redesign Kahoot to be used in a party scenario, basically entertainment. Instead of questions, there would be a new superclass that composes the "Kahoot", called games. It will consist of many subclasses which would be game modes like, charade, wolf, mafia, etc. Per se, charade, instead of answers and options, there will be an image array, for each players, and an open ended user input, called guess and hints. To go more in depth, there will be restrictions on access to each attribtue since a certain player shouldnt be able to see their picture in charades, similarly to availability of guesses or hints. Therefore, Image class will compose this subclass. With different game modes, comes different attribtues and it will be too exhausting to go through each. We could also include an optional feature including video call, which would compose "Kahoot". Opinion wouldn't exist.</p>
+	</li>
+</ol>
